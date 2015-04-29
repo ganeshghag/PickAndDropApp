@@ -1,0 +1,28 @@
+<ion-view view-title="Packages">
+  <ion-content>
+
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="parcel in parcels" type="item-text-wrap" href="#/tab/locations/{{location.name}}">
+        <img ng-src="img/ionic.png">
+        <h2>{{parcel.packageId}}</h2>
+        <p>{{parcel.pincode}}</p>
+		<p>{{parcel.paymentType}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(location)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+
+
+<!--
+<img ng-src="img/ionic.png" style="width: 64px; height: 64px">
+    <p>
+      some
+    </p>
+-->
+
+  </ion-content>
+</ion-view>

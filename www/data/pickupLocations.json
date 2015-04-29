@@ -1,0 +1,46 @@
+{
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/pickupLocations{?page,size,sort}",
+      "templated" : true
+    },
+    "search" : {
+      "href" : "http://localhost:8080/pickupLocations/search"
+    }
+  },
+  "_embedded" : {
+    "pickupLocations" : [ {
+      "name" : "Viviana Mall",
+      "addressLine1" : "Eastern Express Highway",
+      "addressLine2" : "Near Jupiter Hospital",
+      "addressLine3" : "Thane",
+      "addressLine4" : "Thane",
+      "pincode" : "400601",
+      "distance" : 0,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/pickupLocations/1"
+        }
+      }
+    }, {
+      "name" : "R City Mall",
+      "addressLine1" : "Ghatkopar",
+      "addressLine2" : "Ghatkopar",
+      "addressLine3" : "Mumbai",
+      "addressLine4" : "Mumbai",
+      "pincode" : "483737",
+      "distance" : 0,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/pickupLocations/2"
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 2,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}

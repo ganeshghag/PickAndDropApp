@@ -1,0 +1,81 @@
+{
+  "_embedded" : {
+    "parcels" : [ {
+      "packageId" : "PCK92839",
+      "dimensions" : "24 x 50 x 50 cm",
+      "weight" : 10,
+      "scheduledDateTime" : 72772373772,
+      "addressLine1" : "202 Flower Valley",
+      "addressLine2" : "Eastern Express Highway",
+      "addressLine3" : "Opp. Jupiter Hospital",
+      "addressLine4" : "Thane",
+      "pincode" : "400601",
+      "paymentType" : "Netbanking",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/parcels/1"
+        },
+        "pickupLocations" : {
+          "href" : "http://localhost:8080/parcels/1/pickupLocations"
+        }
+      }
+    }, {
+      "packageId" : "PCK92849",
+      "dimensions" : "24 x 50 x 50 cm",
+      "weight" : 10,
+      "scheduledDateTime" : 72772373772,
+      "addressLine1" : "203 Flower Valley",
+      "addressLine2" : "Eastern Express Highway",
+      "addressLine3" : "Opp. Jupiter Hospital",
+      "addressLine4" : "Thane",
+      "pincode" : "400602",
+      "paymentType" : "COD",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/parcels/2"
+        },
+        "pickupLocations" : {
+          "href" : "http://localhost:8080/parcels/2/pickupLocations"
+        }
+      }
+    }, {
+      "packageId" : "PCK92859",
+      "dimensions" : "24 x 50 x 50 cm",
+      "weight" : 10,
+      "scheduledDateTime" : 72772373772,
+      "addressLine1" : "204 Flower Valley",
+      "addressLine2" : "Eastern Express Highway",
+      "addressLine3" : "Opp. Jupiter Hospital",
+      "addressLine4" : "Thane",
+      "pincode" : "400603",
+      "paymentType" : "Netbanking",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/parcels/3"
+        },
+        "pickupLocations" : {
+          "href" : "http://localhost:8080/parcels/3/pickupLocations"
+        }
+      }
+    }, {
+      "packageId" : "PCK92869",
+      "dimensions" : "24 x 50 x 50 cm",
+      "weight" : 10,
+      "scheduledDateTime" : 72772373772,
+      "addressLine1" : "205 Flower Valley",
+      "addressLine2" : "Eastern Express Highway",
+      "addressLine3" : "Opp. Jupiter Hospital",
+      "addressLine4" : "Thane",
+      "pincode" : "400604",
+      "paymentType" : "COD",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/parcels/4"
+        },
+        "pickupLocations" : {
+          "href" : "http://localhost:8080/parcels/4/pickupLocations"
+        }
+      }
+    } ]
+  }
+}
