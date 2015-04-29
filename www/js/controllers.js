@@ -25,6 +25,13 @@ angular.module('starter.controllers', ['ngResource'])
 
 })
 
+.controller('PackDetailCtrl', function($scope, $http, $stateParams, PickAndDropAppServices) {
+    $http.get('data/package.json').then(function(data) {
+      $scope.parcel = data.data._embedded.parcels[0];
+    })
+
+})
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true

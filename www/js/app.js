@@ -75,6 +75,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'app.services','ngRes
         }
       }
     })
+    .state('tab.packdetail', {
+      url: '/packages/:packageId',
+      views: {
+        'tab-locations': {
+          templateUrl: 'templates/package-detail.html',
+          controller: 'PackDetailCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

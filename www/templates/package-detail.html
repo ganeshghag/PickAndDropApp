@@ -1,0 +1,17 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Package Detail">
+  <ion-content class="padding">
+    <img ng-src="img/ionic.png" style="width: 64px; height: 64px">
+    <p>      {{parcel.packageId}}    </p>
+	<p>      {{parcel.addressLine1}}    </p>
+	<p>      {{parcel.addressLine2}}    </p>
+	<p>      {{parcel.addressLine3}}    </p>
+    <p>      {{parcel.paymentType}}    </p>
+    <p>      {{parcel.pincode}}    </p>
+  </ion-content>
+</ion-view>
