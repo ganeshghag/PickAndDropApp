@@ -1,9 +1,63 @@
 <ion-view view-title="Account">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+	
+    
+<div class="list">
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="Ganesh">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Ghag">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="ganesh.ghag@gmail.com">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Description</span>
+    <input type="text" placeholder="Description">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Address Line 1</span>
+    <input type="text" placeholder="address">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Address Line 2</span>
+    <input type="text" placeholder="address">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Address Line 3</span>
+    <input type="text" placeholder="address">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Address Line 4</span>
+    <input type="text" placeholder="address">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Pincode</span>
+    <input type="text" placeholder="400606">
+  </label>
+
+  <ul class="list">
+
+  <li class="item item-toggle">
+     Share Current Location?
+     <label class="toggle toggle-assertive">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+	<hr>
+	<button class="button button-block button-positive" ng-click="">
+		Save  Changes
+	</button>
+
+</div>
+
   </ion-content>
 </ion-view>
