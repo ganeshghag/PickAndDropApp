@@ -2,7 +2,13 @@ angular.module('starter.controllers', ['ngResource'])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('LoginCtrl', function($scope) {})
+.controller('LoginCtrl', function($scope, $state) {
+    $scope.onClickLogin = function() {
+        console.log('from login click');
+        $state.go('tab.locations');
+    }
+
+})
 
 
 .controller('LocationsListCtrl', function($scope, $http, PickAndDropAppServices) {
@@ -30,10 +36,22 @@ angular.module('starter.controllers', ['ngResource'])
       $scope.parcel = data.data._embedded.parcels[0];
     })
 
+    $scope.onClickClaim = function() {
+        console.log('from Claim Click');
+        alert("Thanks for claiming a package delivery. We will notify you, when your request is processed");
+        //$state.go('tab.inbox');
+    }
+
+
 })
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
   };
+
 });
+
+
+
+

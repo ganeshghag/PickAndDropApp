@@ -13,10 +13,10 @@
       "name" : "Viviana Mall",
       "addressLine1" : "Eastern Express Highway",
       "addressLine2" : "Near Jupiter Hospital",
-      "addressLine3" : "Thane",
+      "addressLine3" : "Cadbury Juncton Signal",
       "addressLine4" : "Thane",
       "pincode" : "400601",
-      "distance" : 0,
+      "distance" : 3,
       "_links" : {
         "self" : {
           "href" : "http://localhost:8080/pickupLocations/1"
@@ -24,12 +24,12 @@
       }
     }, {
       "name" : "R City Mall",
-      "addressLine1" : "Ghatkopar",
-      "addressLine2" : "Ghatkopar",
-      "addressLine3" : "Mumbai",
+      "addressLine1" : "Eastern Express Highway",
+      "addressLine2" : "Near Manik Petrol Pump",
+      "addressLine3" : "Ghatkopar",
       "addressLine4" : "Mumbai",
-      "pincode" : "483737",
-      "distance" : 0,
+      "pincode" : "400623",
+      "distance" : 12,
       "_links" : {
         "self" : {
           "href" : "http://localhost:8080/pickupLocations/2"

@@ -3,14 +3,20 @@
 
 	<label class="item item-input">
 		<i class="icon ion-search placeholder-icon"></i>
-		<input type="search" placeholder="Search">
+		<input type="search" placeholder="Search by pincode of delivery location" ng-model="txtSearch">
 	</label>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="parcel in parcels" type="item-text-wrap" href="#/tab/packages/{{parcel.packageId}}">
-        <img ng-src="img/ionic.png">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="parcel in parcels | filter:txtSearch" type="item-text-wrap" href="#/tab/packages/{{parcel.packageId}}">
+        <img ng-src="img/package1.jpg">
         <h2>{{parcel.packageId}}</h2>
-        <p>{{parcel.pincode}}</p>
-		<p>{{parcel.paymentType}}</p>
+        <p>{{parcel.dimensions}}    [{{parcel.weight}} gm]</p>
+		<h3>{{parcel.addressLine1}}</h3>
+		<p>{{parcel.addressLine2}}</p>
+		<p>{{parcel.addressLine3}}, &nbsp;&nbsp;&nbsp;	{{parcel.addressLine4}}</p>
+		<h3>{{parcel.pincode}}</h3>
+		<h3>{{parcel.paymentType}}</h3>
+		<h3><span style="color:blue">{{parcel.scheduledDateTime | date:"MM/dd/yyyy '@' h:mma"}}</span></h3><br>
+
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(location)">
