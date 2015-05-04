@@ -84,6 +84,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'app.services','ngRes
         }
       }
     })
+  .state('tab.deliveries', {
+      url: '/deliveries',
+      cache: false,
+      views: {
+        'tab-deliveries': {
+          templateUrl: 'templates/tab-deliveries.html',
+          controller: 'DeliveriesListCtrl'
+        }
+      }
+    })
+    .state('tab.deliverydetail', {
+      url: '/deliveries/:packageId',
+      cache: false,
+      views: {
+        'tab-deliveries': {
+          templateUrl: 'templates/delivery-detail.html',
+          controller: 'DeliveryDetailCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

@@ -1,0 +1,25 @@
+<ion-view view-title="My Deliveries">
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="parcel in parcels | filter:txtSearch" type="item-text-wrap" href="#/tab/deliveries/{{parcel.packageId}}">
+        <img ng-src="img/delivery1.jpg">
+        <h2>{{parcel.packageId}}</h2>
+        <p>{{parcel.dimensions}}    [{{parcel.weight}} gm]</p>
+		<h3>{{parcel.addressLine1}}</h3>
+		<p>{{parcel.addressLine2}}</p>
+		<p>{{parcel.addressLine3}}, &nbsp;&nbsp;&nbsp;	{{parcel.addressLine4}}</p>
+		<h3>{{parcel.pincode}}</h3>
+		<h3>{{parcel.paymentType}}</h3>
+		<h3><span style="color:blue">{{parcel.scheduledDateTime | date:"MM/dd/yyyy '@' h:mma"}}</span></h3>
+		<h3><span style="color:red">Status: {{parcel.status}}</span></h3>
+
+		<br>
+
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

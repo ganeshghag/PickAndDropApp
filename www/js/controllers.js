@@ -31,7 +31,7 @@ angular.module('starter.controllers', ['ngResource'])
 
 })
 
-.controller('PackDetailCtrl', function($scope, $http, $stateParams, PickAndDropAppServices) {
+.controller('PackDetailCtrl', function($scope, $http, $stateParams, $state) {
     $http.get('data/package.json').then(function(data) {
       $scope.parcel = data.data._embedded.parcels[0];
     })
@@ -39,11 +39,43 @@ angular.module('starter.controllers', ['ngResource'])
     $scope.onClickClaim = function() {
         console.log('from Claim Click');
         alert("Thanks for claiming a package delivery. We will notify you, when your request is processed");
-        //$state.go('tab.inbox');
+        $state.go('tab.deliveries');
     }
 
 
 })
+
+.controller('DeliveriesListCtrl', function($scope, $http) {
+    $http.get('data/deliveries.json').then(function(data) {
+      $scope.parcels = data.data._embedded.parcels;
+      console.log("from DeliveriesListCtrl" + $scope.navFromDeliveryConfirmed);
+      if($scope.navFromDeliveryConfirmed !== undefined){
+        if($scope.navFromDeliveryConfirmed == true){
+            $scope.parcels[0].status="Delivered!";
+            $scope.navFromDeliveryConfirmed == false;
+        }
+      }
+    })
+
+    
+   
+})
+
+.controller('DeliveryDetailCtrl', function($scope, $http, $stateParams, $state) {
+    $http.get('data/package.json').then(function(data) {
+      $scope.parcel = data.data._embedded.parcels[0];
+    })
+
+
+    $scope.onClickDeliveryConfirm = function() {
+        console.log('from onClickDeliveryConfirm()');
+        alert("Delivery Completion has been noted. Thank you!");
+        $scope.navFromDeliveryConfirmed = true;
+        $state.go('tab.deliveries');
+    }
+
+})
+
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {

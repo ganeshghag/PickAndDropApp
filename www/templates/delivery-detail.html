@@ -1,0 +1,44 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="My Delivery Detail">
+  <ion-content class="padding">
+    <img ng-src="img/delivery1.jpg" style="width: 64px; height: 64px">
+	  
+    <p>      {{parcel.packageId}}    </p>
+    <br>      {{parcel.dimensions}}    [ {{parcel.weight}}  gm ]
+	<br>      {{parcel.addressLine1}}
+	<br>      {{parcel.addressLine2}}
+	<br>      {{parcel.addressLine3}}
+    <br>      {{parcel.pincode}}
+    <br>      {{parcel.paymentType}}
+    <br><span style="color:blue">{{parcel.scheduledDateTime | date:"MM/dd/yyyy '@' h:mma"}}</span>
+	<br><span style="color:red">Status: {{parcel.status}}</span>
+	
+	<h3>Receipts</h3>
+	<hr>
+	<label class="item item-input item-stacked-label">
+		<span class="input-label">Payment Receipt Id</span>
+		<input type="text" placeholder="Enter receipt id from customer">
+	</label>
+	<label class="item item-input item-stacked-label">
+		<span class="input-label">My Delivery Pin</span>
+		<input type="text" placeholder="Enter your own pin">
+	</label>
+	<div class="item item-input-inset">
+		<label class="item-input-wrapper">
+		  <input type="text" placeholder="From device gallery / camera">
+		</label>
+		<button class="button button-small">
+		  Upload Image
+		</button>
+	</div>
+
+	<button class="button button-block button-positive" ng-click="onClickDeliveryConfirm()">
+	Confirm Delivery
+	</button>
+  </ion-content>
+</ion-view>
