@@ -1,0 +1,60 @@
+{
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/credits{?page,size,sort}",
+      "templated" : true
+    },
+    "search" : {
+      "href" : "http://localhost:8080/credits/search"
+    }
+  },
+  "_embedded" : {
+    "credits" : [ {
+      "packageId" : "PKG27337",
+      "status" : "Delivery Success",
+      "deliveryDateTime" : "10 Nov 2014, 1 pm",
+      "creditAmount" : "100.00",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/credits/1"
+        }
+      }
+    }, {
+      "packageId" : "PKG92737",
+      "status" : "Delivery Success",
+      "deliveryDateTime" : "10 Oct 2014, 6 pm",
+      "creditAmount" : "200.00",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/credits/2"
+        }
+      }
+    }, {
+      "packageId" : "PKG92737",
+      "status" : "Delivery Success",
+      "deliveryDateTime" : "1 Oct 2014, 3 pm",
+      "creditAmount" : "150.00",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/credits/2"
+        }
+      }
+    }, {
+      "packageId" : "PKG96263",
+      "status" : "Delivery Failed",
+      "deliveryDateTime" : "13 Sep 2014, 9 pm",
+      "creditAmount" : "000.00",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/credits/3"
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 2,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}

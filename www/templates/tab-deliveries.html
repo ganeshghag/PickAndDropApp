@@ -1,9 +1,9 @@
-<ion-view view-title="My Deliveries">
-  <ion-content>
+<ion-view view-title="My Deliveries" ng-controller="DeliveriesListCtrl" ng-click="onViewClick()">
+  <ion-content >
 
-    <ion-list>
+    <ion-list >
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="parcel in parcels | filter:txtSearch" type="item-text-wrap" href="#/tab/deliveries/{{parcel.packageId}}">
-        <img ng-src="img/delivery1.jpg">
+        <img ng-src="img/delivery1.jpg" >
         <h2>{{parcel.packageId}}</h2>
         <p>{{parcel.dimensions}}    [{{parcel.weight}} gm]</p>
 		<h3>{{parcel.addressLine1}}</h3>
@@ -21,5 +21,5 @@
       </ion-item>
     </ion-list>
 
-  </ion-content>
+  </ion-content >
 </ion-view>

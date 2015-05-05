@@ -6,19 +6,22 @@
 -->
 <ion-view view-title="Package Detail">
   <ion-content class="padding">
-    <img ng-src="img/delivery1.jpg" style="width: 64px; height: 64px">
-	  
-    <h3>      {{parcel.packageId}}    </h3>
-    <p>      {{parcel.dimensions}}    </p>
-    <p>      {{parcel.weight}}  gm  </p>
-	<h3>      {{parcel.addressLine1}}    </h3>
-	<p>      {{parcel.addressLine2}}    </p>
-	<p>      {{parcel.addressLine3}}    </p>
-    <h3>      {{parcel.pincode}}    </h3>
-    <h3>      {{parcel.paymentType}}    </h3>
-    <h3><span style="color:blue">{{parcel.scheduledDateTime | date:"MM/dd/yyyy '@' h:mma"}}</span></h3><br>
+	<img ng-src="img/map1.jpg" style="width: 100%; height: 200px">
+
+	<br>  {{parcel.packageId}}  
+    <br>      {{parcel.dimensions}}    
+    <br>      {{parcel.weight}}  gm  
+	<br>      {{parcel.addressLine1}}    
+	<br>      {{parcel.addressLine2}}  
+	<br>      {{parcel.addressLine3}} 
+    <br>      {{parcel.pincode}}
+	<br>
+	<br>
+    <br>      {{parcel.paymentType}}
+    <br><span style="color:blue">{{parcel.scheduledDateTime | date:"MM/dd/yyyy '@' h:mma"}}</span><br>
 
 	<hr>
+
 	<button class="button button-block button-positive" ng-click="onClickClaim()">
 	Claim for Delivery
 	</button>

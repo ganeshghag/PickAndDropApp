@@ -48,29 +48,40 @@ angular.module('starter.controllers', ['ngResource'])
 .controller('DeliveriesListCtrl', function($scope, $http) {
     $http.get('data/deliveries.json').then(function(data) {
       $scope.parcels = data.data._embedded.parcels;
-      console.log("from DeliveriesListCtrl" + $scope.navFromDeliveryConfirmed);
-      if($scope.navFromDeliveryConfirmed !== undefined){
-        if($scope.navFromDeliveryConfirmed == true){
-            $scope.parcels[0].status="Delivered!";
-            $scope.navFromDeliveryConfirmed == false;
+      console.log("from DeliveriesListCtrl" + window.localStorage.navFromDeliveryConfirmed);
+        if(window.localStorage.navFromDeliveryConfirmed < 3){
+            $scope.parcels[0].status="Delivered! Today@5:30 pm";
+            console.log("from DeliveriesListCtrl set to deilvered");
+            window.localStorage.navFromDeliveryConfirmed++;
         }
-      }
+
+            
+
     })
 
+    $scope.onViewClick = function(){
+        $scope.parcels[0].status="Alloted";
+    }
     
    
+})
+.controller('CreditsListCtrl', function($scope, $http) {
+  $http.get('data/credits.json').then(function(data) {
+      $scope.credits = data.data._embedded.credits;
+  })
+
 })
 
 .controller('DeliveryDetailCtrl', function($scope, $http, $stateParams, $state) {
     $http.get('data/package.json').then(function(data) {
       $scope.parcel = data.data._embedded.parcels[0];
+      $scope.parcel.status='Alloted';
     })
 
 
     $scope.onClickDeliveryConfirm = function() {
         console.log('from onClickDeliveryConfirm()');
-        alert("Delivery Completion has been noted. Thank you!");
-        $scope.navFromDeliveryConfirmed = true;
+        window.localStorage['navFromDeliveryConfirmed'] = 0;
         $state.go('tab.deliveries');
     }
 

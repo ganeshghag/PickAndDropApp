@@ -17,6 +17,7 @@
       "addressLine4" : "Thane",
       "pincode" : "400601",
       "distance" : 3,
+      "parcelCount" : 43,
       "_links" : {
         "self" : {
           "href" : "http://localhost:8080/pickupLocations/1"
@@ -30,6 +31,21 @@
       "addressLine4" : "Mumbai",
       "pincode" : "400623",
       "distance" : 12,
+      "parcelCount" : 27,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/pickupLocations/2"
+        }
+      }
+    }, {
+      "name" : "South Bombay Warehouse",
+      "addressLine1" : "Eastern Express Highway",
+      "addressLine2" : "Near Taj Hotel",
+      "addressLine3" : "Colaba",
+      "addressLine4" : "Mumbai",
+      "pincode" : "400063",
+      "distance" : 29,
+      "parcelCount" : 102,
       "_links" : {
         "self" : {
           "href" : "http://localhost:8080/pickupLocations/2"

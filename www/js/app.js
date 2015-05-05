@@ -104,6 +104,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'app.services','ngRes
         }
       }
     })
+  .state('tab.credits', {
+      url: '/credits',
+      views: {
+        'tab-credits': {
+          templateUrl: 'templates/tab-credits.html',
+          controller: 'CreditsListCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

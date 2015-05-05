@@ -1,0 +1,24 @@
+<ion-view view-title="Credits">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item item-button-right" ng-repeat="item in credits" type="item-text-wrap">
+        <h2>{{item.packageId}}</h2>
+		<h3>{{item.deliveryDateTime}}</h3>
+        <h3><span style="color:red">{{item.status}}<span></h3>
+
+		<button class="button button-positive">	{{item.creditAmount}}	</button>
+		<p></p>
+      </ion-item>
+	  <hr>
+		<ion-item class="item item-button-right" type="item-text-wrap">
+		<h1><span style="color:red">Total</span></h1>
+		<h3>5 May 2015, 5 pm</h3>
+		<button class="button button-positive">	450.00	</button>
+		<p></p>
+      </ion-item>
+    </ion-list>
+	
+
+	
+  </ion-content>
+</ion-view>

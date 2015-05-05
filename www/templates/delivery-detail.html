@@ -8,7 +8,7 @@
   <ion-content class="padding">
     <img ng-src="img/delivery1.jpg" style="width: 64px; height: 64px">
 	  
-    <p>      {{parcel.packageId}}    </p>
+    <br>    {{parcel.packageId}}   
     <br>      {{parcel.dimensions}}    [ {{parcel.weight}}  gm ]
 	<br>      {{parcel.addressLine1}}
 	<br>      {{parcel.addressLine2}}
@@ -21,6 +21,15 @@
 	<h3>Receipts</h3>
 	<hr>
 	<label class="item item-input item-stacked-label">
+		<span class="input-label">Recipient Name</span>
+		<input type="text" placeholder="Firstname Lastname">
+	</label>
+	<label class="item item-input item-stacked-label">
+		<span class="input-label">Recipient Email</span>
+		<input type="text" placeholder="email@email.com">
+	</label>
+
+	<label class="item item-input item-stacked-label">
 		<span class="input-label">Payment Receipt Id</span>
 		<input type="text" placeholder="Enter receipt id from customer">
 	</label>
@@ -32,9 +41,7 @@
 		<label class="item-input-wrapper">
 		  <input type="text" placeholder="From device gallery / camera">
 		</label>
-		<button class="button button-small">
-		  Upload Image
-		</button>
+		<button class="button icon-left ion-camera button-small">Upload</button>
 	</div>
 
 	<button class="button button-block button-positive" ng-click="onClickDeliveryConfirm()">
