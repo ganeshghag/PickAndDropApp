@@ -1,11 +1,15 @@
 <ion-view view-title="Packages">
-  <ion-content>
+  <ion-content class="padding">
 
 	<label class="item item-input">
 		<i class="icon ion-search placeholder-icon"></i>
 		<input type="search" placeholder="Search by pincode of delivery location" ng-model="txtSearch">
 	</label>
     <ion-list>
+
+	   <ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
+	   </ion-refresher>
+
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="parcel in parcels | filter:txtSearch" type="item-text-wrap" href="#/tab/packages/{{parcel.packageId}}">
         <img ng-src="img/package2.jpg">
         <h2>{{parcel.packageId}}</h2>

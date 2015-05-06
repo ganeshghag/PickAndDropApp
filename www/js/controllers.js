@@ -8,6 +8,11 @@ angular.module('starter.controllers', ['ngResource'])
         $state.go('tab.locations');
     }
 
+    $scope.onClickSignUp = function() {
+        console.log('from signup click');
+        $state.go('tab.account');
+    }
+
 })
 
 
@@ -22,12 +27,32 @@ angular.module('starter.controllers', ['ngResource'])
   $scope.remove = function(locdata) {
     PickAndDropAppServices.remove(locdata);
   }
+
+  $scope.doRefresh = function() {
+      console.log("from inside do refresh for loca list");
+      /*
+   $http.get('data/pickupLocations.json').then(function(data) {
+      $scope.locdata = data.data._embedded.pickupLocations;
+    }).finally(function() {
+        $scope.$broadcast('scroll.refreshComplete');
+    })
+    */
+
+    $scope.$broadcast('scroll.refreshComplete');
+  }
+
 })
 
 .controller('PackagesCtrl', function($scope, $http, $stateParams, PickAndDropAppServices) {
     $http.get('data/parcels.json').then(function(data) {
-      $scope.parcels = data.data._embedded.parcels;
+        $scope.parcels = data.data._embedded.parcels;
     })
+    
+    $scope.doRefresh = function() {
+        console.log("from inside do refresh for packages list");
+        $scope.$broadcast('scroll.refreshComplete');
+    }
+
 
 })
 
@@ -70,6 +95,11 @@ angular.module('starter.controllers', ['ngResource'])
       $scope.credits = data.data._embedded.credits;
   })
 
+  $scope.doRefresh = function() {
+        console.log("from inside do refresh for credits list");
+        $scope.$broadcast('scroll.refreshComplete');
+  }
+
 })
 
 .controller('DeliveryDetailCtrl', function($scope, $http, $stateParams, $state) {
@@ -88,10 +118,15 @@ angular.module('starter.controllers', ['ngResource'])
 })
 
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, $state) {
   $scope.settings = {
     enableFriends: true
   };
+
+  $scope.onClickSaveAccount = function() {
+        console.log('from save account');
+        $state.go('tab.login');
+  }
 
 });
 

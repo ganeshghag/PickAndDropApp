@@ -6,6 +6,8 @@
 -->
 <ion-view view-title="My Delivery Detail">
   <ion-content class="padding">
+
+  <div>
     <img ng-src="img/delivery1.jpg" style="width: 64px; height: 64px">
 	  
     <br>    {{parcel.packageId}}   
@@ -17,6 +19,7 @@
     <br>      {{parcel.paymentType}}
     <br><span style="color:blue">{{parcel.scheduledDateTime | date:"MM/dd/yyyy '@' h:mma"}}</span>
 	<br><span style="color:red">Status: {{parcel.status}}</span>
+	</div>
 	
 	<h3>Receipts</h3>
 	<hr>
