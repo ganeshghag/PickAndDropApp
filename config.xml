@@ -4,8 +4,8 @@
   <description>
         An Ionic Framework and Cordova project.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="ganesh.ghag@mastek.com" href="http://ganeshghag.blogspot.in/">
+      Ganesh Ghag
     </author>
   <content src="index.html"/>
   <access origin="*"/>
