@@ -3,9 +3,9 @@
     <ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
 	</ion-refresher>
     <ion-list>
-      <ion-item class="item item-button-right" ng-repeat="item in credits" type="item-text-wrap">
+      <ion-item class="item item-button-right" ng-repeat="item in credits | orderBy:'packageId'" type="item-text-wrap">
         <h2>{{item.packageId}}</h2>
-		<h3>{{item.deliveryDateTime}}</h3>
+		<h3>{{item.deliveryDateTime | date:'MMM dd yyyy HH:mm'}}</h3>
         <h3><span style="color:red">{{item.status}}<span></h3>
 
 		<button class="button button-calm">	{{item.creditAmount}}	</button>
@@ -14,8 +14,8 @@
 	  <hr>
 		<ion-item class="item item-button-right" type="item-text-wrap">
 		<h1><span style="color:red">Total</span></h1>
-		<h3>5 May 2015, 5 pm</h3>
-		<button class="button button-calm">	450.00	</button>
+		<h3>{{mytoday}}</h3>
+		<button class="button button-calm">	{{total}}	</button>
 		<p></p>
       </ion-item>
     </ion-list>

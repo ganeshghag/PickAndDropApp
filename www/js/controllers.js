@@ -93,12 +93,24 @@ angular.module('starter.controllers', ['ngResource'])
 .controller('CreditsListCtrl', function($scope, $http) {
   $http.get('data/credits.json').then(function(data) {
       $scope.credits = data.data._embedded.credits;
+      $scope.mytoday=new Date().toString().slice(4,21);
+      $scope.total=450;
   })
 
   $scope.doRefresh = function() {
         console.log("from inside do refresh for credits list");
+        var newcredit = new Object();
+        newcredit.packageId="PCK99901";
+        newcredit.deliveryDateTime=new Date().toString().slice(4,21);
+        newcredit.creditAmount="100.00";
+        newcredit.status="Awaiting Payment";
+        $scope.credits.push(newcredit);
         $scope.$broadcast('scroll.refreshComplete');
+
+        $scope.total=$scope.total+100;
+        $scope.mytoday=new Date().toString().slice(4,21);
   }
+
 
 })
 
@@ -114,6 +126,24 @@ angular.module('starter.controllers', ['ngResource'])
         window.localStorage['navFromDeliveryConfirmed'] = 0;
         $state.go('tab.deliveries');
     }
+
+    $scope.onClickUploadFromCamera = function() {
+        console.log('from onClickUploadFromCamera()'+JSON.stringify(navigator.camera));
+        
+        if(navigator.camera !== undefined){
+            navigator.camera.getPicture(function(imageURI) {
+                console.log('from getpicture URL='+imageURI);
+            }, function(err) {
+                console.log('err during getpicture err='+JSON.stringigy(err));
+            });
+        }else{
+            console.log('navigator.camera was undefined');
+        }
+
+        
+    }
+
+    
 
 })
 
