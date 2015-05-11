@@ -4,20 +4,23 @@
 
       <div class="item item-body">
         <div>
+
+<form name="testForm" novalidate ng-submit="submit()">
 <div class="list">
   <label class="item item-input">
     <span class="input-label">Username</span>
-    <input type="text" value="ganeshghag">
+    <input type="text" value="ganeshghag" ng-required="true" ng-model="loginname" ng-init="loginname='ganeshghag'" name="loginname">
   </label>
   <label class="item item-input">
     <span class="input-label">Password</span>
-    <input type="password" value="password">
+    <input type="password" value="password" ng-required="true"  ng-model="password" ng-init="password='password'" name="password">
   </label>
 </div>
 
-<button class="button button-block button-calm" ng-click="onClickLogin()">
+<button class="button button-block button-calm" type="submit" id="submit">
   Sign In
 </button>
+</form>
 <br>
 
 <br>

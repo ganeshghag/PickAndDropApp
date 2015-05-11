@@ -3,8 +3,8 @@ angular.module('starter.controllers', ['ngResource'])
 .controller('DashCtrl', function($scope) {})
 
 .controller('LoginCtrl', function($scope, $state) {
-    $scope.onClickLogin = function() {
-        console.log('from login click');
+    $scope.submit = function() {
+        console.log('from login click'+$scope.loginname+$scope.password);
         $state.go('tab.locations');
     }
 
@@ -56,6 +56,9 @@ angular.module('starter.controllers', ['ngResource'])
 
 })
 
+
+
+
 .controller('PackDetailCtrl', function($scope, $http, $stateParams, $state) {
     $http.get('data/package.json').then(function(data) {
       $scope.parcel = data.data._embedded.parcels[0];
@@ -102,19 +105,19 @@ angular.module('starter.controllers', ['ngResource'])
         var newcredit = new Object();
         newcredit.packageId="PCK99901";
         newcredit.deliveryDateTime=new Date().toString().slice(4,21);
-        newcredit.creditAmount="100.00";
+        newcredit.creditAmount="150.00";
         newcredit.status="Awaiting Payment";
         $scope.credits.push(newcredit);
         $scope.$broadcast('scroll.refreshComplete');
 
-        $scope.total=$scope.total+100;
+        $scope.total=$scope.total+150;
         $scope.mytoday=new Date().toString().slice(4,21);
   }
 
 
 })
 
-.controller('DeliveryDetailCtrl', function($scope, $http, $stateParams, $state) {
+.controller('DeliveryDetailCtrl', function($scope, $http, $stateParams, $state, $ionicPopup, $timeout) {
     $http.get('data/package.json').then(function(data) {
       $scope.parcel = data.data._embedded.parcels[0];
       $scope.parcel.status='Alloted';
@@ -143,9 +146,44 @@ angular.module('starter.controllers', ['ngResource'])
         
     }
 
+
+
+    // Triggered on a button click, or some other target
+    $scope.showPopupBidAmount = function() {
+      $scope.data = {}
+
+      // An elaborate, custom popup
+      var myPopup = $ionicPopup.show({
+        template: '<input type="text" ng-model="data.bidAmount" value="{{150.00}}">',
+        title: 'Delivery Fees',
+        subTitle: 'Please enter a bid amount for which you agree to do delivery',
+        scope: $scope,
+        buttons: [
+          //{ text: 'Cancel' },
+          {
+            text: '<b>Bid!</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              if (!$scope.data.bidAmount) 
+                  { e.preventDefault(); } 
+              else { return $scope.data.bidAmount; }
+            }
+          }
+        ]
+      });
+      myPopup.then(function(res) {
+        console.log('Tapped!', res);
+        console.log('after bid amount submit');
+        window.localStorage['navFromDeliveryConfirmed'] = 0;
+        $state.go('tab.deliveries');
+      });
+      $timeout(function() {
+         myPopup.close(); //close the popup after 3 seconds for some reason
+      }, 30000);
+     };
     
 
-})
+}) //end of DeliveryDetailCtrl
 
 
 .controller('AccountCtrl', function($scope, $state) {
