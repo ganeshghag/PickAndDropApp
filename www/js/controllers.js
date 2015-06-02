@@ -2,10 +2,20 @@ angular.module('starter.controllers', ['ngResource'])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('LoginCtrl', function($scope, $state) {
-    $scope.submit = function() {
-        console.log('from login click'+$scope.loginname+$scope.password);
-        $state.go('tab.locations');
+.controller('LoginCtrl', function($scope, $ionicPopup, $state) {
+    $scope.submit = function(login) {
+        console.log('from login click'+login.name+login.password);
+        if(!login.name){
+            $ionicPopup.alert({
+               title: 'Login Name is Required!'
+            });
+        }else if(!login.password){
+            $ionicPopup.alert({
+               title: 'Password is Required!'
+            });
+        }
+        else
+            $state.go('tab.locations');
     }
 
     $scope.onClickSignUp = function() {
@@ -59,7 +69,7 @@ angular.module('starter.controllers', ['ngResource'])
 
 
 
-.controller('PackDetailCtrl', function($scope, $http, $stateParams, $state) {
+.controller('PackDetailCtrl', function($scope, $http, $stateParams, $state, $ionicPopup) {
     $http.get('data/package.json').then(function(data) {
       $scope.parcel = data.data._embedded.parcels[0];
     })
@@ -69,6 +79,41 @@ angular.module('starter.controllers', ['ngResource'])
         alert("Thanks for claiming a package delivery. We will notify you, when your request is processed");
         $state.go('tab.deliveries');
     }
+
+    // Triggered on a button click, or some other target
+    $scope.showPopupBidAmount = function() {
+      $scope.data = {}
+
+      // An elaborate, custom popup
+      var myPopup = $ionicPopup.show({
+        template: 'Amount in Rs.<input type="text" ng-model="data.bidAmount" ng-init="data.bidAmount=150.00" style="border:1px solid #ff0000">',
+        title: 'Delivery Fees',
+        subTitle: 'Please enter a bid amount for which you agree to do delivery',
+        scope: $scope,
+        buttons: [
+          //{ text: 'Cancel' },
+          {
+            text: '<b>Bid!</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              if (!$scope.data.bidAmount) 
+                  { e.preventDefault(); } 
+              else { return $scope.data.bidAmount; }
+            }
+          }
+        ]
+      });
+      myPopup.then(function(res) {
+        console.log('Tapped!', res);
+        console.log('after bid amount submit');
+        //window.localStorage['navFromDeliveryConfirmed'] = 0;
+        $state.go('tab.deliveries');
+      });
+      $timeout(function() {
+         myPopup.close(); //close the popup after 3 seconds for some reason
+      }, 30000);
+     };
+
 
 
 })
@@ -146,41 +191,10 @@ angular.module('starter.controllers', ['ngResource'])
         
     }
 
+    //window.localStorage['navFromDeliveryConfirmed'] = 0;
+    //$state.go('tab.deliveries');
 
 
-    // Triggered on a button click, or some other target
-    $scope.showPopupBidAmount = function() {
-      $scope.data = {}
-
-      // An elaborate, custom popup
-      var myPopup = $ionicPopup.show({
-        template: '<input type="text" ng-model="data.bidAmount" value="{{150.00}}">',
-        title: 'Delivery Fees',
-        subTitle: 'Please enter a bid amount for which you agree to do delivery',
-        scope: $scope,
-        buttons: [
-          //{ text: 'Cancel' },
-          {
-            text: '<b>Bid!</b>',
-            type: 'button-positive',
-            onTap: function(e) {
-              if (!$scope.data.bidAmount) 
-                  { e.preventDefault(); } 
-              else { return $scope.data.bidAmount; }
-            }
-          }
-        ]
-      });
-      myPopup.then(function(res) {
-        console.log('Tapped!', res);
-        console.log('after bid amount submit');
-        window.localStorage['navFromDeliveryConfirmed'] = 0;
-        $state.go('tab.deliveries');
-      });
-      $timeout(function() {
-         myPopup.close(); //close the popup after 3 seconds for some reason
-      }, 30000);
-     };
     
 
 }) //end of DeliveryDetailCtrl
